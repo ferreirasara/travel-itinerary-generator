@@ -5,7 +5,7 @@ interface InputsContainerProps {
 }
 const InputsContainer = ({ children }: InputsContainerProps) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
       {children}
     </div>
   )

@@ -6,12 +6,14 @@ import MainContainer from "./components/MainContainer";
 import MainContainerInner from "./components/MainContainerInner";
 import InputsContainer from "./components/InputsContainer";
 import { generateItinerary } from "./api";
+import Markdown from "react-markdown";
 
 const defaultInput: ItineraryData = { city: undefined, daysNumber: undefined };
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(false);
   const [inputs, setInputs] = useState<ItineraryData[]>([defaultInput]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [itinerary, setItinerary] = useState<string>();
 
   const handleAddInput = useCallback(() => {
     setInputs((prev) => [...prev, defaultInput])
@@ -37,7 +39,12 @@ function App() {
 
   const handleGenerate = useCallback(async () => {
     setLoading(true);
-    const response = await generateItinerary(inputs);
+    try {
+      const response = await generateItinerary(inputs?.filter(cur => !!cur?.city && !!cur?.daysNumber && cur?.daysNumber > 0));
+      setItinerary(response);
+    } catch (e) {
+      console.log(e);
+    }
     setLoading(false);
   }, [inputs])
 
@@ -69,6 +76,7 @@ function App() {
               />
             ))}
           </InputsContainer>
+          {itinerary && <Markdown>{itinerary}</Markdown>}
         </Card>
       </MainContainerInner>
     </MainContainer>
