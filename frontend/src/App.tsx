@@ -64,7 +64,7 @@ function App() {
         <MainContainerInner>
           <Card
             title={
-              <Typography.Title level={3} style={{ margin: 0 }}>
+              <Typography.Title level={4} style={{ margin: 0 }}>
                 <RocketOutlined /> Gerador de roteiro de viagem
               </Typography.Title>
             }

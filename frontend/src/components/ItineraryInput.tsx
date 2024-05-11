@@ -1,4 +1,4 @@
-import { Button, Input, Space } from "antd";
+import { Button, Input } from "antd";
 import { ItineraryData } from "../types";
 import { CloseCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import Typography from "antd/es/typography/Typography";
@@ -15,7 +15,13 @@ interface ItineraryInputProps {
 }
 const ItineraryInput = ({ index, data, inputsLength, disabled, handleAddInput, handleChangeCity, handleChangeDaysNumber, handleRemoveInput }: ItineraryInputProps) => {
   return (
-    <Space>
+    <div style={{
+      display: 'flex',
+      gap: '4px',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    }}>
       <Typography>Irei passar</Typography>
       <Input
         placeholder="dias"
@@ -48,7 +54,7 @@ const ItineraryInput = ({ index, data, inputsLength, disabled, handleAddInput, h
       >
         Adicionar
       </Button>}
-    </Space>
+    </div>
   )
 }
 export default ItineraryInput;
