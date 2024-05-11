@@ -1,5 +1,5 @@
 import { QuestionCircleOutlined } from "@ant-design/icons";
-import { Divider, Modal, Tag, Typography } from "antd";
+import { Divider, Modal, Typography } from "antd";
 
 interface HelpModalProps {
   open: boolean
@@ -64,7 +64,7 @@ const HelpModal = ({ onClose, open }: HelpModalProps) => {
         <li>Desenvolvida para o desafio da <strong>Imersão Inteligência Artificial da Alura e do Google.</strong></li>
         <li>Tecnologias: Construída com Nest.js, React.js e Gemini API.</li>
         <li>
-          <a href="https://github.com/ferreirasara/travel-itinerary-generator/" target="_blank">
+          <a href="https://github.com/ferreirasara/travel-itinerary-generator/" target="_blank" rel="noreferrer">
             Repositório no GitHub
           </a>
         </li>
