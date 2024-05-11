@@ -1,6 +1,6 @@
 import { Button, Input, Space } from "antd";
 import { ItineraryData } from "../types";
-import { CloseCircleOutlined, GlobalOutlined, PlusCircleOutlined, ScheduleOutlined } from '@ant-design/icons';
+import { CloseCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import Typography from "antd/es/typography/Typography";
 
 interface ItineraryInputProps {
