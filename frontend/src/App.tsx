@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import { Button, Card, Space } from "antd";
 import { useCallback, useMemo, useState } from "react";
 import { ItineraryData } from "./types";
 import ItineraryInput from "./components/ItineraryInput";
@@ -7,6 +7,7 @@ import MainContainerInner from "./components/MainContainerInner";
 import InputsContainer from "./components/InputsContainer";
 import { generateItinerary } from "./api";
 import ItineraryResult from "./components/ItineraryResult";
+import { ReloadOutlined, RocketOutlined, ThunderboltOutlined } from "@ant-design/icons";
 
 const defaultInput: ItineraryData = { city: undefined, daysNumber: undefined };
 
@@ -59,11 +60,17 @@ function App() {
     <MainContainer>
       <MainContainerInner>
         <Card
-          title="Gerador de roteiro de viagem"
+          title={
+            <Space>
+              <RocketOutlined />
+              Gerador de roteiro de viagem
+            </Space>
+          }
           actions={[
             itineraryResult ? <Button
               type="primary"
               onClick={handleResetInputs}
+              icon={<ReloadOutlined />}
             >
               Gerar novo itinerário
             </Button>
@@ -72,6 +79,7 @@ function App() {
                 onClick={handleGenerate}
                 loading={loading}
                 disabled={!hasAtLeastOneInput}
+                icon={<ThunderboltOutlined />}
               >
                 Gerar itinerário
               </Button>
